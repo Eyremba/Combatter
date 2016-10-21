@@ -1,0 +1,13 @@
+name: Combatter
+author: ItsMas_
+
+version: 1.0
+main: me.mas.combatter.Combatter
+
+commands:
+  combatter:
+    description: Combatter comand
+    aliases: [cb]
+
+  analyse:
+    description: Used to analyse players

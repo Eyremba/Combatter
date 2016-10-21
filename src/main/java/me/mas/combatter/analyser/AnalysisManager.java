@@ -3,6 +3,7 @@ package me.mas.combatter.analyser;
 import me.mas.combatter.Combatter;
 import me.mas.combatter.util.Message;
 import me.mas.combatter.util.Messenger;
+import me.mas.combatter.util.UtilMaths;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -90,6 +91,7 @@ public class AnalysisManager
 
         Messenger.msg(caller, "=== Analysis results for &d" + tp.getName() + " &a===");
         Messenger.msg(caller, "Avg Reach: &d" + analysis.getAvgReach());
+        Messenger.msg(caller, "Highest Reach: &d" + UtilMaths.round(analysis.getHighestReach(), 2));
         Messenger.msg(caller, "Avg CPS: &d" + analysis.getClicks() / sec);
         Messenger.msg(caller, "Avg Ping: &d" + analysis.getAvgPing());
         Messenger.msg(caller, "Hit %: &d" + analysis.getAccuracy());

@@ -63,9 +63,7 @@ public class AnalysisListener implements Listener
             analysis.addClick();
 
             if (e.getPlayer().getNearbyEntities(5, 5, 5).size() > 0)
-            {
                 analysis.addInteraction();
-            }
         }
     }
 

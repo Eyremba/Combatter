@@ -1,7 +1,7 @@
 name: Combatter
 author: ItsMas_
 
-version: 1.0
+version: 1.1
 main: me.mas.combatter.Combatter
 
 commands:

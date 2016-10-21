@@ -1,19 +1,22 @@
 package me.mas.combatter.analyser;
 
 import me.mas.combatter.util.UtilMaths;
-import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Analysis
+class Analysis
 {
     /* Reach */
     private List<Double> reaches = new ArrayList<>();
+    private double highest = 0.0;
 
     void addReach(double reach)
     {
         reaches.add(reach);
+
+        if (reach > highest)
+            highest = reach;
     }
 
     double getAvgReach()
@@ -31,6 +34,11 @@ public class Analysis
         return UtilMaths.round(total / reaches.size(), 2);
     }
 
+    double getHighestReach()
+    {
+        return highest;
+    }
+
     /* CPS */
     private int clicks = 0;
 
@@ -45,8 +53,8 @@ public class Analysis
     }
 
     /* Hit % */
-    int interactions = 0;
-    int hits = 0;
+    private int interactions = 0;
+    private int hits = 0;
 
     void addInteraction()
     {

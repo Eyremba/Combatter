@@ -4,6 +4,7 @@ import me.mas.combatter.analyser.AnalysisListener;
 import me.mas.combatter.analyser.AnalysisManager;
 import me.mas.combatter.cmds.CommandAnalyse;
 import me.mas.combatter.cmds.CommandCombatter;
+import me.mas.combatter.updater.UpdateManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,6 +19,14 @@ public class Combatter extends JavaPlugin
         getCommand("combatter").setExecutor(new CommandCombatter(this));
 
         Bukkit.getPluginManager().registerEvents(new AnalysisListener(this), this);
+
+        updateManager = new UpdateManager();
+
+        Object[] updates = updateManager.getLatestUpdate();
+        if (updates.length == 2)
+        {
+
+        }
     }
 
     private AnalysisManager analysisManager;
@@ -25,4 +34,6 @@ public class Combatter extends JavaPlugin
     {
         return analysisManager;
     }
+
+    private UpdateManager updateManager = new UpdateManager();
 }

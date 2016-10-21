@@ -3,10 +3,10 @@ package me.mas.combatter.analyser;
 import me.mas.combatter.Combatter;
 import me.mas.combatter.util.Message;
 import me.mas.combatter.util.Messenger;
-import me.mas.combatter.util.UtilMaths;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 
@@ -55,11 +55,15 @@ public class AnalysisManager
         String name = caller.getName();
         analysing.add(name);
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(combatter, () ->
+        new BukkitRunnable()
         {
-            msgResults(caller, target.getUniqueId(), sec);
-            analysing.remove(name);
-        }, 20L*sec);
+            @Override
+            public void run()
+            {
+                analysing.remove(name);
+                msgResults(caller, target.getUniqueId(), sec);
+            }
+        }.runTaskLater(combatter, 20L * sec);
     }
 
     private void msgResults(CommandSender caller, UUID target, int sec)

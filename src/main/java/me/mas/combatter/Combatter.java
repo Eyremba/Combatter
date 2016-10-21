@@ -15,7 +15,7 @@ public class Combatter extends JavaPlugin
         analysisManager = new AnalysisManager(this);
 
         getCommand("analyse").setExecutor(new CommandAnalyse(this));
-        getCommand("combatter").setExecutor(new CommandCombatter());
+        getCommand("combatter").setExecutor(new CommandCombatter(this));
 
         Bukkit.getPluginManager().registerEvents(new AnalysisListener(this), this);
     }

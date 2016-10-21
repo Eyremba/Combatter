@@ -62,9 +62,7 @@ public class Analysis
         if (interactions == 0 || hits == 0)
             return "N/A";
 
-        float percent = (hits / interactions) * 100;
-
-        return String.valueOf(UtilMaths.round(percent, 2));
+        return String.valueOf((hits / interactions) * 100);
     }
 
     /* Ping */

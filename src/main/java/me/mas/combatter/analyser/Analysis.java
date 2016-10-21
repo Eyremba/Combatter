@@ -45,8 +45,8 @@ public class Analysis
     }
 
     /* Hit % */
-    private int interactions = 0;
-    private int hits = 0;
+    int interactions = 0;
+    int hits = 0;
 
     void addInteraction()
     {
@@ -63,11 +63,9 @@ public class Analysis
         if (interactions == 0 || hits == 0)
             return "N/A";
 
-        float percent = (hits / interactions) * 100;
+        float percent = ((float) hits / interactions) * 100F;
 
-        Bukkit.broadcastMessage(String.valueOf(percent));
-
-        return String.valueOf(percent);
+        return String.valueOf(UtilMaths.round(percent, 2));
     }
 
     /* Ping */

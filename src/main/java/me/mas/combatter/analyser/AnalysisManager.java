@@ -92,6 +92,6 @@ public class AnalysisManager
         Messenger.msg(caller, "Avg Reach: &d" + analysis.getAvgReach());
         Messenger.msg(caller, "Avg CPS: &d" + analysis.getClicks() / sec);
         Messenger.msg(caller, "Avg Ping: &d" + analysis.getAvgPing());
-        Messenger.msg(caller, "TEST Accuracy: &d" + analysis.getAccuracy());
+        Messenger.msg(caller, "Hit %: &d" + analysis.getAccuracy());
     }
 }

@@ -34,7 +34,7 @@ public class AnalysisManager
     /* */
     private List<String> analysing = new ArrayList<>();
 
-    public void startAnalysis(CommandSender caller, Player target, int sec)
+    public void startAnalysis(final CommandSender caller, final Player target, final int sec)
     {
         if (analysing.contains(caller.getName()))
         {
@@ -52,7 +52,7 @@ public class AnalysisManager
 
         sysmap.put(target.getUniqueId(), new Analysis());
 
-        String name = caller.getName();
+        final String name = caller.getName();
         analysing.add(name);
 
         new BukkitRunnable()
@@ -92,10 +92,6 @@ public class AnalysisManager
         Messenger.msg(caller, "Avg Reach: &d" + analysis.getAvgReach());
         Messenger.msg(caller, "Avg CPS: &d" + analysis.getClicks() / sec);
         Messenger.msg(caller, "Avg Ping: &d" + analysis.getAvgPing());
-
-        Messenger.msg(caller, "TEST Interactions: &d" + analysis.interactions);
-        Messenger.msg(caller, "TEST Hits: &d" + analysis.hits);
-        Messenger.msg(caller, "TEST Thing: &d" + (analysis.hits / analysis.interactions));
         Messenger.msg(caller, "TEST Accuracy: &d" + analysis.getAccuracy());
     }
 }

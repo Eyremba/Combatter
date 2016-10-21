@@ -1,6 +1,7 @@
 package me.mas.combatter.analyser;
 
 import me.mas.combatter.util.UtilMaths;
+import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +44,9 @@ public class Analysis
         return clicks;
     }
 
-    /* Accuracy */
-    public int interactions = 0;
-    public int hits = 0;
+    /* Hit % */
+    private int interactions = 0;
+    private int hits = 0;
 
     void addInteraction()
     {
@@ -62,7 +63,11 @@ public class Analysis
         if (interactions == 0 || hits == 0)
             return "N/A";
 
-        return String.valueOf((hits / interactions) * 100);
+        float percent = (hits / interactions) * 100;
+
+        Bukkit.broadcastMessage(String.valueOf(percent));
+
+        return String.valueOf(percent);
     }
 
     /* Ping */

@@ -16,13 +16,9 @@ public class Messenger
         for (Message msg : Message.values())
         {
             if (msg == Message.PREFIX)
-            {
-                PREFIX = combatter.getConfig().getString(msg.toString());
-            }
+                PREFIX = translate(combatter.getConfig().getString(msg.toString()));
             else
-            {
                 messages.put(msg, combatter.getConfig().getString(msg.toString()));
-            }
         }
     }
 

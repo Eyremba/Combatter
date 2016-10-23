@@ -90,10 +90,24 @@ public class AnalysisManager
         }
 
         Messenger.msg(caller, "=== Analysis results for &d" + tp.getName() + " &a===");
-        Messenger.msg(caller, "Avg Reach: &d" + analysis.getAvgReach());
-        Messenger.msg(caller, "Highest Reach: &d" + UtilMaths.round(analysis.getHighestReach(), 2));
-        Messenger.msg(caller, "Avg CPS: &d" + analysis.getClicks() / sec);
-        Messenger.msg(caller, "Avg Ping: &d" + analysis.getAvgPing());
-        Messenger.msg(caller, "Hit %: &d" + analysis.getAccuracy());
+
+        msg(caller, "Avg reach", analysis.getAvgReach());
+        msg(caller, "Lowest reach", analysis.getLowestReach());
+        msg(caller, "Highest reach", analysis.getHighestReach());
+
+        msg(caller, "Avg CPS", analysis.getClicks() / sec);
+        msg(caller, "Lowest CPS", analysis.getLowestCPS());
+        msg(caller, "Highest CPS", analysis.getHighestCPS());
+
+        msg(caller, "Avg ping", analysis.getAvgPing());
+        msg(caller, "Lowest ping", analysis.getLowestPing());
+        msg(caller, "Highest ping", analysis.getHighestPing());
+
+        msg(caller, "Hit %", analysis.getAccuracy());
+    }
+
+    private void msg(CommandSender caller, String data, Object value)
+    {
+        Messenger.msg(caller, data + ": &d" + value);
     }
 }

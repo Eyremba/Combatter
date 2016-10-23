@@ -9,14 +9,23 @@ class Analysis
 {
     /* Reach */
     private List<Double> reaches = new ArrayList<>();
-    private double highest = 0.0;
+    private Double lowestReach;
+    private Double highestReach;
 
     void addReach(double reach)
     {
+        if (reaches.size() == 0)
+        {
+            highestReach = reach;
+            lowestReach = reach;
+        }
+
         reaches.add(reach);
 
-        if (reach > highest)
-            highest = reach;
+        if (reach > highestReach)
+            highestReach = reach;
+        else if (reach < lowestReach)
+            lowestReach = reach;
     }
 
     double getAvgReach()
@@ -36,20 +45,48 @@ class Analysis
 
     double getHighestReach()
     {
-        return highest;
+        return highestReach == null ? 0.0 : UtilMaths.round(highestReach, 2);
+    }
+
+    double getLowestReach()
+    {
+        return lowestReach == null ? 0.0 : UtilMaths.round(lowestReach, 2);
     }
 
     /* CPS */
     private int clicks = 0;
+    private Integer lowestCPS;
+    private Integer highestCPS;
 
-    void addClick()
+    void addClicks(int clicks)
     {
-        clicks += 1;
+        if (this.clicks == 0)
+        {
+            lowestCPS = clicks;
+            highestCPS = clicks;
+        }
+
+        this.clicks += clicks;
+
+        if (clicks > highestCPS)
+            highestCPS = clicks;
+        else if (clicks < lowestCPS)
+            lowestCPS = clicks;
     }
 
     double getClicks()
     {
         return clicks;
+    }
+
+    double getHighestCPS()
+    {
+        return highestCPS == null ? 0 : highestCPS;
+    }
+
+    double getLowestCPS()
+    {
+        return lowestCPS == null ? 0 : lowestCPS;
     }
 
     /* Hit % */
@@ -78,10 +115,23 @@ class Analysis
 
     /* Ping */
     private List<Integer> pings = new ArrayList<>();
+    private int lowestPing;
+    private int highestPing;
 
     void addPing(int ping)
     {
+        if (pings.size() == 0)
+        {
+            lowestPing = ping;
+            highestPing = ping;
+        }
+
         pings.add(ping);
+
+        if (ping > highestPing)
+            highestPing = ping;
+        else if (ping < lowestPing)
+            lowestPing = ping;
     }
 
     int getAvgPing()
@@ -97,5 +147,15 @@ class Analysis
             return 0;
 
         return total / pings.size();
+    }
+
+    int getHighestPing()
+    {
+        return highestPing;
+    }
+
+    int getLowestPing()
+    {
+        return lowestPing;
     }
 }

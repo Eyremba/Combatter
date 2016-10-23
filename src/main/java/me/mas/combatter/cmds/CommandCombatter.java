@@ -18,7 +18,7 @@ public class CommandCombatter implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
-        Messenger.msg(sender, "&aCombatter by &dItsMas_ &aversion &d" + combatter.getDescription().getVersion());
+        sender.sendMessage(Messenger.translate("&aCombatter by &dItsMas_ &aversion &d" + combatter.getDescription().getVersion()));
         return true;
     }
 }

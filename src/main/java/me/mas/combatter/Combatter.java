@@ -14,6 +14,8 @@ public class Combatter extends JavaPlugin
     @Override
     public void onEnable()
     {
+        saveDefaultConfig();
+
         analysisManager = new AnalysisManager(this);
 
         getCommand("analyse").setExecutor(new CommandAnalyse(this));
@@ -28,6 +30,12 @@ public class Combatter extends JavaPlugin
         {
             Bukkit.getPluginManager().registerEvents(new UpdateNotifier(this, updates), this);
         }
+    }
+
+    @Override
+    public void onDisable()
+    {
+        saveConfig();
     }
 
     private AnalysisManager analysisManager;

@@ -1,0 +1,16 @@
+# Messages
+# Use '&' for colours
+# %player% will be replaced with the player's name
+
+STARTED_ANALYSIS: "&aStarted analysis of &d%player% &afor &d%seconds%s"
+ANALYSIS_FINISHED: "&a=== Analysis resutls for &d%player% &a==="
+NO_PERMS: "&cYou don't have permision"
+ANALYSE_ARGS: "Usage: /analyse <player> <seconds>"
+PLAYER_NULL: "That player is not online"
+NUMBER_INVALID: "That is not a valid number"
+PLAYER_OFFLINE: "The target player logged out while being analysed, results were unable to be collected"
+ANALYSIS_NULL: "&cERROR - Unable to load analysis for player %player%"
+ALREADY_ANALYSING: "You are already analysing a player"
+ALREADY_BEING_ANALYSED: "That player is already being analysed"
+
+RESULT: "&a%result% &d: %value%"

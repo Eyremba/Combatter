@@ -49,7 +49,7 @@ public class AnalysisManager
             return;
         }
 
-        Messenger.msg(caller, "&aStarted analysis of &d" + target.getName() + " &afor &d" + sec + "s");
+        caller.sendMessage(Messenger.config(Message.STARTED_ANALYSIS, false).replace("%player%", target.getName()).replace("%seconds%", String.valueOf(sec)));
 
         sysmap.put(target.getUniqueId(), new Analysis());
 
@@ -89,7 +89,7 @@ public class AnalysisManager
             return;
         }
 
-        Messenger.msg(caller, "=== Analysis results for &d" + tp.getName() + " &a===");
+        caller.sendMessage(Messenger.config(Message.ANALYSIS_FINISHED, false).replace("%player%", tp.getName()));
 
         msg(caller, "Avg reach", analysis.getAvgReach());
         msg(caller, "Lowest reach", analysis.getLowestReach());
@@ -108,6 +108,6 @@ public class AnalysisManager
 
     private void msg(CommandSender caller, String data, Object value)
     {
-        Messenger.msg(caller, data + ": &d" + value);
+        caller.sendMessage(Messenger.config(Message.RESULT, false).replace("%result%", data).replace("%value%", value.toString()));
     }
 }

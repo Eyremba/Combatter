@@ -2,6 +2,7 @@ package me.mas.combatter.util;
 
 public enum Message
 {
+    PREFIX,
     STARTED_ANALYSIS,
     ANALYSIS_FINISHED,
     NO_PERMS,

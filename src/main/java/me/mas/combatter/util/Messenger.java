@@ -15,11 +15,18 @@ public class Messenger
     {
         for (Message msg : Message.values())
         {
-            messages.put(msg, combatter.getConfig().getString(msg.toString()));
+            if (msg == Message.PREFIX)
+            {
+                PREFIX = combatter.getConfig().getString(msg.toString());
+            }
+            else
+            {
+                messages.put(msg, combatter.getConfig().getString(msg.toString()));
+            }
         }
     }
 
-    private static final String PREFIX = translate("&aCombatter > &d");
+    private static String PREFIX;
 
     private static String getMsg(Message message)
     {

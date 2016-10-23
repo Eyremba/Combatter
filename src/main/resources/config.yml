@@ -2,6 +2,8 @@
 # Use '&' for colours
 # %player% will be replaced with the player's name
 
+PREFIX: "&aCombatter > &d"
+
 STARTED_ANALYSIS: "&aStarted analysis of &d%player% &afor &d%seconds%s"
 ANALYSIS_FINISHED: "&a=== Analysis resutls for &d%player% &a==="
 NO_PERMS: "&cYou don't have permision"

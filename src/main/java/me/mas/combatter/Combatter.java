@@ -6,6 +6,7 @@ import me.mas.combatter.cmds.CommandAnalyse;
 import me.mas.combatter.cmds.CommandCombatter;
 import me.mas.combatter.updater.UpdateManager;
 import me.mas.combatter.updater.UpdateNotifier;
+import me.mas.combatter.util.Messenger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +25,7 @@ public class Combatter extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new AnalysisListener(this), this);
 
         updateManager = new UpdateManager(this);
+        messenger = new Messenger(this);
 
         Object[] updates = updateManager.getLatestUpdate();
         if (updates != null && updates.length == 2)
@@ -37,6 +39,8 @@ public class Combatter extends JavaPlugin
     {
         saveConfig();
     }
+
+    private Messenger messenger;
 
     private AnalysisManager analysisManager;
     public AnalysisManager getAnalysisManager()

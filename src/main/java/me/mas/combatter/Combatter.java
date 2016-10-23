@@ -18,6 +18,7 @@ public class Combatter extends JavaPlugin
         saveDefaultConfig();
 
         analysisManager = new AnalysisManager(this);
+        messenger = new Messenger(this);
 
         getCommand("analyse").setExecutor(new CommandAnalyse(this));
         getCommand("combatter").setExecutor(new CommandCombatter(this));
@@ -25,7 +26,6 @@ public class Combatter extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new AnalysisListener(this), this);
 
         updateManager = new UpdateManager(this);
-        messenger = new Messenger(this);
 
         Object[] updates = updateManager.getLatestUpdate();
         if (updates != null && updates.length == 2)

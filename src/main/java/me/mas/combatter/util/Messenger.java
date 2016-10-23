@@ -19,6 +19,8 @@ public class Messenger
         }
     }
 
+    private static final String PREFIX = translate("&aCombatter > &d");
+
     private static String getMsg(Message message)
     {
         return messages.get(message);
@@ -29,9 +31,7 @@ public class Messenger
         return ChatColor.translateAlternateColorCodes('&', string);
     }
 
-    public static final String PREFIX = ChatColor.translateAlternateColorCodes('&', "&aCombatter > &d");
-
-    public static String config(Message message)
+    private static String config(Message message)
     {
         return config(message, true);
     }

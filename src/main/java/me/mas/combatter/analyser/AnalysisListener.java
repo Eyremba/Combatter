@@ -123,6 +123,7 @@ public class AnalysisListener implements Listener
                             analysis.addClicks(0);
                     }
                 }
+                clicks.clear();
             }
         }.runTaskTimer(combatter, 0L, 20L);
     }

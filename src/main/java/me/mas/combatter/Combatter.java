@@ -24,7 +24,7 @@ public class Combatter extends JavaPlugin
         updateManager = new UpdateManager(this);
 
         Object[] updates = updateManager.getLatestUpdate();
-        if (updates.length == 2)
+        if (updates != null && updates.length == 2)
         {
             Bukkit.getPluginManager().registerEvents(new UpdateNotifier(this, updates), this);
         }

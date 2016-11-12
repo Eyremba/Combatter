@@ -20,8 +20,8 @@ public class UpdateManager
         this.combatter = combatter;
     }
 
-    private final String VERSION_URL = "https://api.spiget.org/v2/resources/30707/versions?size=" + Integer.MAX_VALUE + "&spiget__ua=SpigetDocs";
-    private final String DESC_URL = "https://api.spiget.org/v2/resources/30707/updates?size=" + Integer.MAX_VALUE + "&spiget__ua=SpigetDocs";
+    private final String VERSION_URL = "https://api.spiget.org/v2/resources/30707/versions?size=" + Integer.MAX_VALUE + "&spiget__ua=" + combatter.getDescription().getName();
+    private final String DESC_URL = "https://api.spiget.org/v2/resources/30707/updates?size=" + Integer.MAX_VALUE + "&spiget__ua=" + combatter.getDescription().getName();
 
     public Object[] getLatestUpdate()
     {

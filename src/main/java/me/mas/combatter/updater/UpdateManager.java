@@ -40,9 +40,9 @@ public class UpdateManager
             return null;
         }
 
-        Double lastVersion = Double.parseDouble(((JSONObject) versionsArray.get(versionsArray.size() - 1)).get("name").toString());
+        String lastVersion = ((JSONObject) versionsArray.get(versionsArray.size() - 1)).get("name").toString();
 
-        if (lastVersion > Double.parseDouble(combatter.getDescription().getVersion()))
+        if (Integer.parseInt(lastVersion.replaceAll("\\.", "")) > Integer.parseInt(combatter.getDescription().getVersion().replaceAll("\\.", "")))
         {
             // Update available
             JSONArray updatesArray;

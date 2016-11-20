@@ -42,6 +42,9 @@ public class Combatter extends JavaPlugin
 
         Bukkit.getPluginManager().registerEvents(updateNotifier, this);
 
+        final int config = getConfig().getInt("UPDATE_CHECK_INTERVAL");
+        final int mins = config < 1 ? 20 : config;
+
         new BukkitRunnable()
         {
             @Override
@@ -52,7 +55,7 @@ public class Combatter extends JavaPlugin
                 if (updates != null && updates.length == 2)
                     updateNotifier.updateMessage(updates);
             }
-        }.runTaskTimer(this, 20L * 60L, 20L * 60L * 20L);
+        }.runTaskTimer(this, 20L * 60L, 20L * 60L * mins);
     }
 
     private AnalysisManager analysisManager;

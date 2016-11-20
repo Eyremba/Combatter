@@ -27,24 +27,6 @@ public class Combatter extends JavaPlugin
 
         Metrics metrics = new Metrics(this);
 
-        metrics.addCustomChart(new Metrics.SimplePie("used_version")
-        {
-            @Override
-            public String getValue()
-            {
-                return getDescription().getVersion();
-            }
-        });
-
-        metrics.addCustomChart(new Metrics.SingleLineChart("player_count")
-        {
-            @Override
-            public int getValue()
-            {
-                return Bukkit.getOnlinePlayers().size();
-            }
-        });
-
         getCommand("analyse").setExecutor(new CommandAnalyse(this));
         getCommand("combatter").setExecutor(new CommandCombatter(this));
 

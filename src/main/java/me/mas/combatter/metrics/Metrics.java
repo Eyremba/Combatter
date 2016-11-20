@@ -26,7 +26,7 @@ import java.util.zip.GZIPOutputStream;
 public class Metrics
 {
     // The version of this bStats class
-    private static final int B_STATS_VERSION = 1;
+    public static final int B_STATS_VERSION = 1;
 
     // The url to which the data is sent
     private static final String URL = "https://bStats.org/submitData";

@@ -1,7 +1,9 @@
 package me.mas.combatter.updater;
 
 import me.mas.combatter.Combatter;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -24,6 +26,12 @@ public class UpdateNotifier implements Listener
                         "&aCombatter> New version: &ev" + info[0] + " &a(current: " + combatter.getDescription().getVersion() + ")" + "\n" +
                         "&aCombatter> Features: &e" + info[1]
         );
+
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            if (player.isOp())
+                player.sendMessage(chatMsg);
+        }
     }
 
     @EventHandler

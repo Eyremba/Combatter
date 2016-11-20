@@ -16,3 +16,7 @@ ALREADY_ANALYSING: "You are already analysing a player"
 ALREADY_BEING_ANALYSED: "That player is already being analysed"
 
 RESULT: "&a%result% &d: %value%"
+
+# The minutes between the plugin checking for updates
+# Making this too low could cause lagspikes, try and keep it at default
+UPDATE_CHECK_INTERVAL: 20

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class CommandAnalyse implements CommandExecutor
 {
-    private Combatter combatter;
+    private final Combatter combatter;
 
     public CommandAnalyse(Combatter combatter)
     {

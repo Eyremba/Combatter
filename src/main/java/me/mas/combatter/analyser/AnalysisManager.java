@@ -13,7 +13,7 @@ import java.util.*;
 
 public class AnalysisManager
 {
-    private Combatter combatter;
+    private final Combatter combatter;
 
     public AnalysisManager(Combatter combatter)
     {

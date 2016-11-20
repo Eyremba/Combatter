@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class UpdateManager
 {
-    private Combatter combatter;
+    private final Combatter combatter;
 
     public UpdateManager(Combatter combatter)
     {

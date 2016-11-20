@@ -8,21 +8,28 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class UpdateNotifier implements Listener
 {
-    public UpdateNotifier(Combatter combatter, Object[] updates)
+    private final Combatter combatter;
+
+    public UpdateNotifier(Combatter combatter)
+    {
+        this.combatter = combatter;
+    }
+
+    private String chatMsg;
+
+    public void updateMessage(Object[] info)
     {
         chatMsg = ChatColor.translateAlternateColorCodes('&',
                 "&aCombatter> &eA new update is available!" + "\n" +
-                "&aCombatter> New version: &ev" + updates[0] + " &a(current: " + combatter.getDescription().getVersion() + ")" + "\n" +
-                "&aCombatter> Features: &e" + updates[1]
+                        "&aCombatter> New version: &ev" + info[0] + " &a(current: " + combatter.getDescription().getVersion() + ")" + "\n" +
+                        "&aCombatter> Features: &e" + info[1]
         );
     }
-
-    private final String chatMsg;
 
     @EventHandler
     public void on(PlayerJoinEvent e)
     {
-        if (e.getPlayer().isOp())
+        if (e.getPlayer().isOp() && chatMsg != null)
             e.getPlayer().sendMessage(chatMsg);
     }
 }

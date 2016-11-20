@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class AnalysisListener implements Listener
 {
-    private Combatter combatter;
+    private final Combatter combatter;
 
     public AnalysisListener(Combatter combatter)
     {

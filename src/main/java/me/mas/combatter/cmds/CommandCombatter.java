@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 public class CommandCombatter implements CommandExecutor
 {
-    private Combatter combatter;
+    private final Combatter combatter;
 
     public CommandCombatter(Combatter combatter)
     {

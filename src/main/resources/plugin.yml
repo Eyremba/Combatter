@@ -6,7 +6,7 @@ main: me.mas.combatter.Combatter
 
 commands:
   combatter:
-    description: Combatter comand
+    description: Combatter command
     aliases: [cb]
 
   analyse:
